@@ -38,9 +38,9 @@ jobs:
           # 이 워크플로우를 트리거한, 사용자의 GithubId
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and Push image
+      - name: Build and push image
         run: |
           IMAGE=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/$IMAGE_NAME
-          docker build -t $IMAGE:$GITHUB_RUN_NUMBR .
-          docker push $IMAGE:$GITHUB_RUN_NUMBR
+          docker build -t $IMAGE:$GITHUB_RUN_NUMBER .
+          docker push $IMAGE:$GITHUB_RUN_NUMBER
     # TODO: 추후 k8s manifest 작업시, 추가 작업 필요
